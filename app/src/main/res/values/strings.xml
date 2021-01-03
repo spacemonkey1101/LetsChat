@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LetsChat</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="email">Enter your email</string>
+    <string name="password">Enter your password</string>
+    <string name="confirm_password">Enter your password again</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
 </resources>

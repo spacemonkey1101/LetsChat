@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/archivo_narrow_bold</item>
+        <item>@font/chivo</item>
+        <item>@font/chivo_black</item>
+    </array>
+</resources>
