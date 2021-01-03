@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/chivo_black"
+        android:text="@string/log_in"
+        android:textSize="20sp" />
+
+
+
+    <EditText
+        android:id="@+id/edit_text_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="12dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:fontFamily="@font/chivo"
+        android:background="@color/colorTextBackground"
+        android:textColor="@color/colorPrimaryText"/>
+
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="12dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:fontFamily="@font/chivo"
+        android:background="@color/colorTextBackground"
+        android:textColor="@color/colorPrimaryText"/>
+
+    <Button
+            android:id="@+id/btn_log_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/log_in"
+            android:textColor="@color/white"/>
+
+    <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@color/colorPrimaryLight"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"/>
+    </LinearLayout>
