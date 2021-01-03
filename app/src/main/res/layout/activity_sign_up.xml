@@ -25,7 +25,7 @@
         android:background="@color/colorTextBackground"
         android:fontFamily="@font/chivo"
         android:hint="@string/name_hint"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:padding="12dp"
         android:textColor="@color/colorPrimaryText" />
 
