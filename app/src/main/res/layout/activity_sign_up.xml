@@ -65,30 +65,22 @@
         android:padding="12dp"
         android:textColor="@color/colorPrimaryText" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="25dp">
+        android:layout_margin="15dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"/>
+    <Button
+        android:id="@+id/btn_log_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/colorPrimaryLight"
+        android:text="@string/log_in"
+        android:textColor="@color/white"/>
 
-        <Button
-            android:id="@+id/btn_sign_up"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:background="@color/colorPrimary"
-            android:text="@string/sign_up"
-            android:textColor="@color/white"/>
 
-        <Button
-            android:id="@+id/btn_log_in"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:background="@color/colorPrimary"
-            android:text="@string/log_in"
-            android:textColor="@color/white"/>
-    </LinearLayout>
 </LinearLayout>
