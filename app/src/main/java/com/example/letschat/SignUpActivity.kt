@@ -50,6 +50,11 @@ class SignUpActivity : AppCompatActivity() {
             registerUser(userName,email,password)
 
         }
+
+        btn_log_in.setOnClickListener {
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
     //register user function
     private fun registerUser(userName:String,email:String , password:String){
@@ -72,7 +77,10 @@ class SignUpActivity : AppCompatActivity() {
 
                     databaseReference.setValue(hashMap).addOnCompleteListener {
                         if (it.isSuccessful) {
-
+                            edit_text_name.setText("")
+                            edit_text_email.setText("")
+                            edit_text_password.setText("")
+                            edit_text_confirm_password.setText("")
                             //open next activity
                             val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
                             startActivity(intent)
