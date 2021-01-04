@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                         edit_text_email.setText("")
                         edit_text_password.setText("")
                         //open next activity
-                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        val intent = Intent(this@LoginActivity, UsersActivity::class.java)
                         startActivity(intent)
                     }else{
                         Toast.makeText(applicationContext,"email and password are not valid!", Toast.LENGTH_SHORT).show()

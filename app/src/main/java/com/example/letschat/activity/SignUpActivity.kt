@@ -83,7 +83,7 @@ class SignUpActivity : AppCompatActivity() {
                             edit_text_password.setText("")
                             edit_text_confirm_password.setText("")
                             //open next activity
-                            val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
+                            val intent = Intent(this@SignUpActivity, UsersActivity::class.java)
                             startActivity(intent)
                         }
 
