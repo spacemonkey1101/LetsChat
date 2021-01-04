@@ -23,9 +23,9 @@ LetsChat is a light android chat app  that lets you chat with user(duh!)
 
 ## Screen Shots
 
-![Login Screen](LogIn%20Screen.jpeg | width=100)
-![SignUp Screen](SignUp%20Screen.jpeg | width=100)
-![Users List Screen](Users%20List.jpeg | width=100)
+![Login Screen](LogIn%20Screen.jpeg =200x)
+![SignUp Screen](SignUp%20Screen.jpeg =200x)
+![Users List Screen](Users%20List.jpeg  =200x)
 
 ## Check List Ahead
 
