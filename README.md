@@ -1,6 +1,9 @@
 # Lets Chat!
+<img alt="LOGO" align="right" height="250" src="/LetsChatlogo.png" />
 
-LetsChat is a light android chat app  that lets you chat with user(duh!)
+LetsChat is a light android chat app that lets you chat with user(duh!).
+I want to integrate a lot mode features in the app, that enables people to 
+have video conferencing
 
 
 ## Getting Started
