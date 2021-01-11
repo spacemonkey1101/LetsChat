@@ -35,6 +35,7 @@ class UsersActivity : AppCompatActivity() {
         userList.add(User("Terry","https://static01.nyt.com/images/2020/01/23/obituaries/23jones/merlin_60759704_20e5c09f-c54b-4040-9c9e-9144117552a1-mobileMasterAt3x.jpg"))
         userList.add(User("Graham","https://advancelocal-adapter-image-uploads.s3.amazonaws.com/image.oregonlive.com/home/olive-media/width2048/img/tv/photo/2018/10/10/montycastjpg-7ef393e2355a42aa.jpg"))
         */
+
         getUserList()
 
     }

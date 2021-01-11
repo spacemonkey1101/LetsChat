@@ -6,4 +6,5 @@
     <string name="confirm_password">Enter your password again</string>
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
+    <string name="message">Message</string>
 </resources>
