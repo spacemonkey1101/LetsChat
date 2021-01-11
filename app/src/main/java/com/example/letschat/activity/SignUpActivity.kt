@@ -55,6 +55,7 @@ class SignUpActivity : AppCompatActivity() {
         btn_log_in.setOnClickListener {
             val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
     //register user function
@@ -85,6 +86,7 @@ class SignUpActivity : AppCompatActivity() {
                             //open next activity
                             val intent = Intent(this@SignUpActivity, UsersActivity::class.java)
                             startActivity(intent)
+                            finish()
                         }
 
                     }

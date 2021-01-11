@@ -26,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
         if(firebaseUser != null) {
             val intent = Intent(this@LoginActivity, UsersActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         btn_log_in.setOnClickListener {
@@ -47,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
                         //open next activity
                         val intent = Intent(this@LoginActivity, UsersActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }else{
                         Toast.makeText(applicationContext,"email and password are not valid!", Toast.LENGTH_SHORT).show()
                     }
@@ -58,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
             //open next activity
             val intent1 = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intent1)
+            finish()
         }
     }
 }
