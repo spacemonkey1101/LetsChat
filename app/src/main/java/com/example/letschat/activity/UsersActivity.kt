@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.letschat.R
 import com.example.letschat.adapter.UserAdapter
 import com.example.letschat.model.User
@@ -45,6 +46,7 @@ class UsersActivity : AppCompatActivity() {
         imgProfile.setOnClickListener {
             val intent1 = Intent(this@UsersActivity, ProfileActivity::class.java)
             startActivity(intent1)
+            finish()
         }
         getUserList()
 
@@ -57,9 +59,15 @@ class UsersActivity : AppCompatActivity() {
         databaseReference.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
+                val user = snapshot.getValue(User::class.java)
+                if (user?.userImage.equals("")) {
+                    imgProfile.setImageResource(R.mipmap.ic_launcher_round)
+                } else {
+                    Glide.with(this@UsersActivity).load(user?.userImage)
+                        .placeholder(R.mipmap.ic_launcher_round).into(imgProfile)
 
+                }
                 for(dataSpanShot:DataSnapshot in snapshot.children) {
-                    val user = dataSpanShot.getValue(User::class.java)
                     if (user?.userId?.equals(firebase?.uid) == true) {
                         user?.let { userList.add(it) }
                     }
