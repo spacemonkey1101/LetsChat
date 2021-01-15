@@ -77,6 +77,7 @@ class ProfileActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+
     }
     private fun chooseImage() {
         val intent = Intent()
