@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.letschat.R
@@ -77,7 +78,13 @@ class ProfileActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        user_image.setOnClickListener {
+            chooseImage()
+        }
 
+        btn_save.setOnClickListener {
+            uploadImage()
+        }
     }
     private fun chooseImage() {
         val intent = Intent()
@@ -86,13 +93,14 @@ class ProfileActivity : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent,"Select Image") , PICK_IMAGE_REQUEST)
     }
 
-    override fun onActivityReenter(resultCode: Int, data: Intent?) {
-        super.onActivityReenter(resultCode, data)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == PICK_IMAGE_REQUEST && resultCode != null) {
             filePath = data?.data
             try {
                 var bitmap: Bitmap = MediaStore.Images.Media.getBitmap(contentResolver , filePath)
                 user_image.setImageBitmap(bitmap)
+                btn_save.visibility = View.VISIBLE
             } catch (e:IOException) {
                 e.printStackTrace()
             }
@@ -110,6 +118,8 @@ class ProfileActivity : AppCompatActivity() {
                 OnSuccessListener<UploadTask.TaskSnapshot> {
                     progressDialog.dismiss()
                     Toast.makeText(applicationContext, "Uploaded", Toast.LENGTH_SHORT).show()
+                    btn_save.visibility = View.GONE
+
                 }
             }
                 .addOnFailureListener{
