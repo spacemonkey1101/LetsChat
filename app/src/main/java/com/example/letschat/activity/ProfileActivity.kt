@@ -37,7 +37,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var storageRef:StorageReference
 
 
-    private final val PICK_IMAGE_REQUEST:Int = 2021
+    private final val PICK_IMAGE_REQUEST:Int = 2020
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +73,6 @@ class ProfileActivity : AppCompatActivity() {
 
             })
 
-
         imgBack.setOnClickListener{
             onBackPressed()
         }
@@ -88,18 +87,20 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
     private fun chooseImage() {
-        val intent = Intent()
+        val intent:Intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent,"Select Image") , PICK_IMAGE_REQUEST)
+        startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST)
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == PICK_IMAGE_REQUEST && resultCode != null) {
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode != null) {
             filePath = data?.data
             try {
-                var bitmap: Bitmap = MediaStore.Images.Media.getBitmap(contentResolver , filePath)
+
+                var bitmap: Bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 user_image.setImageBitmap(bitmap)
                 btn_save.visibility = View.VISIBLE
             } catch (e:IOException) {
@@ -110,8 +111,6 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun uploadImage() {
         if(filePath != null) {
-
-
             val ref:StorageReference = storageRef.child("image/" + UUID.randomUUID().toString())
             ref.putFile(filePath!!).addOnSuccessListener {
                     progressBar.visibility = View.GONE
