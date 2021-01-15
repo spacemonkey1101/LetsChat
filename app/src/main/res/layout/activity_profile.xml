@@ -79,6 +79,12 @@
             android:visibility="gone"
             android:textColor="@color/white"/>
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/colorDivider"
+            android:visibility="gone"
+            android:id="@+id/progressBar"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

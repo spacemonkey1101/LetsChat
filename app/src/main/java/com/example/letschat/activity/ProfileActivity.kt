@@ -84,6 +84,7 @@ class ProfileActivity : AppCompatActivity() {
 
         btn_save.setOnClickListener {
             uploadImage()
+            progressBar.visibility = View.VISIBLE
         }
     }
     private fun chooseImage() {
@@ -109,33 +110,23 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun uploadImage() {
         if(filePath != null) {
-            val progressDialog: ProgressDialog = ProgressDialog(this)
-            progressDialog.setTitle("Uploading...")
-            progressDialog.show()
+
 
             val ref:StorageReference = storageRef.child("image/" + UUID.randomUUID().toString())
             ref.putFile(filePath!!).addOnSuccessListener {
-                OnSuccessListener<UploadTask.TaskSnapshot> {
-                    progressDialog.dismiss()
+                    progressBar.visibility = View.GONE
                     Toast.makeText(applicationContext, "Uploaded", Toast.LENGTH_SHORT).show()
                     btn_save.visibility = View.GONE
 
-                }
+
             }
                 .addOnFailureListener{
-                    OnFailureListener{
-                        progressDialog.dismiss()
+                        progressBar.visibility = View.GONE
                         Toast.makeText(applicationContext, "Failed " + it.message, Toast.LENGTH_SHORT).show()
-                    }
+
                 }
-                .addOnProgressListener {
-                    OnProgressListener<UploadTask.TaskSnapshot>{
-                        var progress:Double = (100.0 * it.bytesTransferred / it.totalByteCount)
-                        progressDialog.setMessage("Uploaded " + progress.toInt() + "%")
 
 
-                    }
-                }
         }
     }
 }
