@@ -1,0 +1,228 @@
+Index: app/src/main/res/layout/activity_users.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".activity.UsersActivity\"\r\n    android:orientation=\"vertical\"\r\n    >\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"50dp\"\r\n        android:gravity=\"center_vertical\"\r\n        android:orientation=\"horizontal\">\r\n        <ImageView\r\n            android:id=\"@+id/imgBack\"\r\n            android:layout_width=\"32dp\"\r\n            android:layout_height=\"32dp\"\r\n            android:padding=\"5dp\"\r\n            android:layout_marginStart=\"10dp\"\r\n            android:src=\"@drawable/ic_baseline_arrow_back_24\"/>\r\n\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"15dp\"\r\n            android:fontFamily=\"@font/chivo_black\"\r\n            android:text=\"@string/message\"\r\n            android:textSize=\"15sp\" />\r\n\r\n    </LinearLayout>\r\n\r\n\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:id=\"@+id/usersRecyclerView\"/>\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_users.xml	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
++++ app/src/main/res/layout/activity_users.xml	(date 1610383349244)
+@@ -17,6 +17,7 @@
+             android:layout_width="32dp"
+             android:layout_height="32dp"
+             android:padding="5dp"
++            android:layout_weight="0.5"
+             android:layout_marginStart="10dp"
+             android:src="@drawable/ic_baseline_arrow_back_24"/>
+ 
+@@ -26,7 +27,16 @@
+             android:layout_marginStart="15dp"
+             android:fontFamily="@font/chivo_black"
+             android:text="@string/message"
++            android:layout_weight="2"
++
+             android:textSize="15sp" />
++        <de.hdodenhof.circleimageview.CircleImageView
++            android:id="@+id/imgProfile"
++            android:layout_width="42dp"
++            android:layout_height="42dp"
++            android:layout_weight="0.5"
++            android:layout_marginEnd="5dp"
++            android:src="@mipmap/ic_launcher_round" />
+ 
+     </LinearLayout>
+ 
+Index: app/src/main/res/layout/activity_profile.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:padding=\"10dp\"\r\n    android:paddingTop=\"10dp\"\r\n    android:orientation=\"vertical\"\r\n    android:gravity=\"center\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"50dp\"\r\n        android:gravity=\"center_vertical\"\r\n        android:orientation=\"horizontal\">\r\n        <ImageView\r\n            android:id=\"@+id/imgBack\"\r\n            android:layout_width=\"32dp\"\r\n            android:layout_height=\"32dp\"\r\n            android:padding=\"5dp\"\r\n            android:layout_weight=\"0.5\"\r\n            android:layout_marginStart=\"10dp\"\r\n            android:src=\"@drawable/ic_baseline_arrow_back_24\"/>\r\n\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"15dp\"\r\n            android:fontFamily=\"@font/chivo_black\"\r\n            android:layout_weight=\"2\"\r\n            android:text=\"@string/message\"\r\n            android:textSize=\"15sp\" />\r\n\r\n        <de.hdodenhof.circleimageview.CircleImageView\r\n            android:id=\"@+id/imgProfile\"\r\n            android:layout_width=\"42dp\"\r\n            android:layout_height=\"42dp\"\r\n            android:layout_weight=\"0.5\"\r\n            android:layout_marginEnd=\"5dp\"\r\n            android:src=\"@mipmap/ic_launcher_round\" />\r\n\r\n    </LinearLayout>\r\n\r\n<androidx.cardview.widget.CardView\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:padding=\"10dp\"\r\n    app:cardElevation=\"10dp\"\r\n    android:layout_marginStart=\"10dp\"\r\n    android:layout_marginEnd=\"10dp\"\r\n    app:cardCornerRadius=\"5dp\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"10dp\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <de.hdodenhof.circleimageview.CircleImageView\r\n            xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n            android:layout_width=\"120dp\"\r\n            android:layout_height=\"120dp\"\r\n            android:id=\"@+id/user_image\"\r\n            android:layout_marginStart=\"10dp\"\r\n            android:layout_marginEnd=\"10dp\"\r\n            android:layout_marginTop=\"10dp\"\r\n            app:civ_border_width=\"1dp\"\r\n            app:civ_border_color=\"@color/colorPrimary\"\r\n            android:src=\"@mipmap/ic_launcher\"/>\r\n\r\n        <TextView\r\n            android:id=\"@+id/userName\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Ritam\"\r\n            android:textAlignment=\"center\"\r\n            android:textSize=\"14sp\"\r\n            android:maxLines=\"1\"\r\n            android:fontFamily=\"@font/chivo_black\"/>\r\n\r\n    </LinearLayout>\r\n</androidx.cardview.widget.CardView>\r\n\r\n\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_profile.xml	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
++++ app/src/main/res/layout/activity_profile.xml	(date 1610383349266)
+@@ -18,7 +18,6 @@
+             android:layout_width="32dp"
+             android:layout_height="32dp"
+             android:padding="5dp"
+-            android:layout_weight="0.5"
+             android:layout_marginStart="10dp"
+             android:src="@drawable/ic_baseline_arrow_back_24"/>
+ 
+@@ -31,14 +30,6 @@
+             android:text="@string/message"
+             android:textSize="15sp" />
+ 
+-        <de.hdodenhof.circleimageview.CircleImageView
+-            android:id="@+id/imgProfile"
+-            android:layout_width="42dp"
+-            android:layout_height="42dp"
+-            android:layout_weight="0.5"
+-            android:layout_marginEnd="5dp"
+-            android:src="@mipmap/ic_launcher_round" />
+-
+     </LinearLayout>
+ 
+ <androidx.cardview.widget.CardView
+Index: app/src/main/java/com/example/letschat/activity/LoginActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.letschat.activity\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.text.TextUtils\r\nimport android.widget.Toast\r\nimport com.example.letschat.R\r\nimport com.google.firebase.auth.FirebaseAuth\r\nimport com.google.firebase.auth.FirebaseUser\r\nimport kotlinx.android.synthetic.main.activity_login.*\r\n\r\nclass LoginActivity : AppCompatActivity() {\r\n\r\n    private lateinit var auth: FirebaseAuth\r\n    private lateinit var firebaseUser: FirebaseUser\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_login)\r\n\r\n        auth = FirebaseAuth.getInstance()\r\n        firebaseUser = auth.currentUser!!\r\n\r\n        //if user is logged in then navigate to user screen\r\n        if(firebaseUser != null) {\r\n            val intent = Intent(this@LoginActivity, UsersActivity::class.java)\r\n            startActivity(intent)\r\n            finish()\r\n        }\r\n\r\n        btn_log_in.setOnClickListener {\r\n            val email = edit_text_email.text.toString()\r\n            val password = edit_text_password.text.toString()\r\n\r\n            if (TextUtils.isEmpty(email)) {\r\n                Toast.makeText(applicationContext,\"email is required\", Toast.LENGTH_SHORT).show()\r\n            }\r\n            if (TextUtils.isEmpty(password)) {\r\n                Toast.makeText(applicationContext,\"password is required\", Toast.LENGTH_SHORT).show()\r\n            }\r\n            auth.signInWithEmailAndPassword(email,password)\r\n                .addOnCompleteListener(this) {\r\n                    if (it.isSuccessful) {\r\n                        //set entry to empty strings\r\n                        edit_text_email.setText(\"\")\r\n                        edit_text_password.setText(\"\")\r\n                        //open next activity\r\n                        val intent = Intent(this@LoginActivity, UsersActivity::class.java)\r\n                        startActivity(intent)\r\n                        finish()\r\n                    }else{\r\n                        Toast.makeText(applicationContext,\"email and password are not valid!\", Toast.LENGTH_SHORT).show()\r\n                    }\r\n                }\r\n\r\n\r\n        }\r\n        btn_sign_up.setOnClickListener {\r\n            //open next activity\r\n            val intent1 = Intent(this@LoginActivity, SignUpActivity::class.java)\r\n            startActivity(intent1)\r\n            finish()\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/letschat/activity/LoginActivity.kt	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
++++ app/src/main/java/com/example/letschat/activity/LoginActivity.kt	(date 1610382186821)
+@@ -13,14 +13,13 @@
+ class LoginActivity : AppCompatActivity() {
+ 
+     private lateinit var auth: FirebaseAuth
+-    private lateinit var firebaseUser: FirebaseUser
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_login)
+ 
+         auth = FirebaseAuth.getInstance()
+-        firebaseUser = auth.currentUser!!
++        var firebaseUser: FirebaseUser? = auth.currentUser
+ 
+         //if user is logged in then navigate to user screen
+         if(firebaseUser != null) {
+Index: app/src/main/java/com/example/letschat/activity/ProfileActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.letschat.activity\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.example.letschat.R\r\nimport com.example.letschat.model.User\r\nimport kotlinx.android.synthetic.main.activity_profile.*\r\nimport kotlinx.android.synthetic.main.activity_users.*\r\nimport kotlinx.android.synthetic.main.activity_users.imgBack\r\n\r\nclass ProfileActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_profile)\r\n\r\n        imgBack.setOnClickListener{\r\n            onBackPressed()\r\n        }\r\n\r\n        imgProfile.setOnClickListener {\r\n            val intent1 = Intent(this@ProfileActivity, UsersActivity::class.java)\r\n            startActivity(intent1)\r\n            finish()\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/letschat/activity/ProfileActivity.kt	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
++++ app/src/main/java/com/example/letschat/activity/ProfileActivity.kt	(date 1610383598305)
+@@ -3,25 +3,55 @@
+ import android.content.Intent
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.widget.Toast
++import com.bumptech.glide.Glide
+ import com.example.letschat.R
+ import com.example.letschat.model.User
++import com.google.firebase.auth.FirebaseAuth
++import com.google.firebase.auth.FirebaseUser
++import com.google.firebase.database.*
+ import kotlinx.android.synthetic.main.activity_profile.*
+ import kotlinx.android.synthetic.main.activity_users.*
+ import kotlinx.android.synthetic.main.activity_users.imgBack
+ 
+ class ProfileActivity : AppCompatActivity() {
++
++    private lateinit var firebaseUser: FirebaseUser
++    private lateinit var databaseReference: DatabaseReference
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_profile)
+ 
++        firebaseUser = FirebaseAuth.getInstance().currentUser!!
++        databaseReference = FirebaseDatabase.getInstance()
++            .getReference("Users")
++            .child(firebaseUser.uid)
++
++
++            databaseReference.addValueEventListener(object : ValueEventListener{
++                override fun onDataChange(snapshot: DataSnapshot) {
++                    val user = snapshot.getValue(User::class.java)
++                    userName.text = user?.userName
++                    if (user?.userImage.equals("")) {
++                        user_image.setImageResource(R.mipmap.ic_launcher_round)
++                    } else {
++                        Glide.with(this@ProfileActivity).load(user?.userImage)
++                            .placeholder(R.mipmap.ic_launcher_round).into(user_image)
++
++                    }
++                }
++
++                override fun onCancelled(error: DatabaseError) {
++                    Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show()
++                }
++
++            })
++
++
+         imgBack.setOnClickListener{
+             onBackPressed()
+         }
+ 
+-        imgProfile.setOnClickListener {
+-            val intent1 = Intent(this@ProfileActivity, UsersActivity::class.java)
+-            startActivity(intent1)
+-            finish()
+-        }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/letschat/activity/UsersActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.letschat.activity\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.widget.LinearLayout\r\nimport android.widget.Toast\r\nimport androidx.recyclerview.widget.LinearLayoutManager\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.example.letschat.R\r\nimport com.example.letschat.adapter.UserAdapter\r\nimport com.example.letschat.model.User\r\nimport com.google.firebase.auth.FirebaseAuth\r\nimport com.google.firebase.auth.FirebaseUser\r\nimport com.google.firebase.database.DataSnapshot\r\nimport com.google.firebase.database.DatabaseError\r\nimport com.google.firebase.database.FirebaseDatabase\r\nimport com.google.firebase.database.ValueEventListener\r\nimport com.google.firebase.ktx.Firebase\r\nimport kotlinx.android.synthetic.main.activity_profile.*\r\nimport kotlinx.android.synthetic.main.activity_users.*\r\nimport kotlinx.android.synthetic.main.activity_users.imgBack\r\n\r\nclass UsersActivity : AppCompatActivity() {\r\n\r\n    val userList = ArrayList<User>()\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_users)\r\n\r\n        usersRecyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)\r\n\r\n        //Raw data\r\n       /* userList.add(User(\"Brian\",\"https://pbs.twimg.com/profile_images/966442748990521344/_qX5URB9_400x400.jpg\"))\r\n        userList.add(User(\"John\",\"https://c8.alamy.com/comp/ETTX8J/john-cleese-filming-the-british-comedy-film-monty-python-and-the-holy-ETTX8J.jpg\"))\r\n        userList.add(User(\"Eric\",\"https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/Flyingcircus_2.jpg/250px-Flyingcircus_2.jpg\"))\r\n        userList.add(User(\"Terry\",\"https://static01.nyt.com/images/2020/01/23/obituaries/23jones/merlin_60759704_20e5c09f-c54b-4040-9c9e-9144117552a1-mobileMasterAt3x.jpg\"))\r\n        userList.add(User(\"Graham\",\"https://advancelocal-adapter-image-uploads.s3.amazonaws.com/image.oregonlive.com/home/olive-media/width2048/img/tv/photo/2018/10/10/montycastjpg-7ef393e2355a42aa.jpg\"))\r\n        */\r\n        imgBack.setOnClickListener{\r\n            onBackPressed()\r\n        }\r\n\r\n        imgProfile.setOnClickListener {\r\n            val intent1 = Intent(this@UsersActivity, ProfileActivity::class.java)\r\n            startActivity(intent1)\r\n        }\r\n        getUserList()\r\n\r\n    }\r\n\r\n    fun getUserList(){\r\n        var firebase: FirebaseUser? = FirebaseAuth.getInstance().currentUser\r\n        var databaseReference = FirebaseDatabase.getInstance().getReference(\"Users\")\r\n\r\n        databaseReference.addValueEventListener(object: ValueEventListener {\r\n            override fun onDataChange(snapshot: DataSnapshot) {\r\n                userList.clear()\r\n\r\n                for(dataSpanShot:DataSnapshot in snapshot.children) {\r\n                    val user = dataSpanShot.getValue(User::class.java)\r\n                    if (user?.userId?.equals(firebase?.uid) == true) {\r\n                        user?.let { userList.add(it) }\r\n                    }\r\n                }\r\n                val userAdapter = UserAdapter(applicationContext,userList)\r\n\r\n                usersRecyclerView.adapter = userAdapter\r\n            }\r\n\r\n            override fun onCancelled(error: DatabaseError) {\r\n                Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show()\r\n            }\r\n\r\n        })\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/letschat/activity/UsersActivity.kt	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
++++ app/src/main/java/com/example/letschat/activity/UsersActivity.kt	(date 1610377865468)
+@@ -7,6 +7,7 @@
+ import android.widget.Toast
+ import androidx.recyclerview.widget.LinearLayoutManager
+ import androidx.recyclerview.widget.RecyclerView
++import com.bumptech.glide.Glide
+ import com.example.letschat.R
+ import com.example.letschat.adapter.UserAdapter
+ import com.example.letschat.model.User
+@@ -45,6 +46,7 @@
+         imgProfile.setOnClickListener {
+             val intent1 = Intent(this@UsersActivity, ProfileActivity::class.java)
+             startActivity(intent1)
++            finish()
+         }
+         getUserList()
+ 
+@@ -57,9 +59,15 @@
+         databaseReference.addValueEventListener(object: ValueEventListener {
+             override fun onDataChange(snapshot: DataSnapshot) {
+                 userList.clear()
++                val user = snapshot.getValue(User::class.java)
++                if (user?.userImage.equals("")) {
++                    imgProfile.setImageResource(R.mipmap.ic_launcher_round)
++                } else {
++                    Glide.with(this@UsersActivity).load(user?.userImage)
++                        .placeholder(R.mipmap.ic_launcher_round).into(imgProfile)
+ 
++                }
+                 for(dataSpanShot:DataSnapshot in snapshot.children) {
+-                    val user = dataSpanShot.getValue(User::class.java)
+                     if (user?.userId?.equals(firebase?.uid) == true) {
+                         user?.let { userList.add(it) }
+                     }
+Index: app/debug/output-metadata.json
+===================================================================
+--- app/debug/output-metadata.json	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
++++ app/debug/output-metadata.json	(revision 646ce8894ba71efbe9b2aaab2c700d3363ca7295)
+@@ -1,18 +0,0 @@
+-{
+-  "version": 2,
+-  "artifactType": {
+-    "type": "APK",
+-    "kind": "Directory"
+-  },
+-  "applicationId": "com.example.letschat",
+-  "variantName": "processDebugResources",
+-  "elements": [
+-    {
+-      "type": "SINGLE",
+-      "filters": [],
+-      "versionCode": 1,
+-      "versionName": "1.0",
+-      "outputFile": "app-debug.apk"
+-    }
+-  ]
+-}
+\ No newline at end of file
