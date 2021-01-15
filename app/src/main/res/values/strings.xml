@@ -8,5 +8,6 @@
     <string name="log_in">Log In</string>
     <string name="message">Message</string>
     <string name="profile">Profile</string>
+    <string name="save">Save</string>
 
 </resources>

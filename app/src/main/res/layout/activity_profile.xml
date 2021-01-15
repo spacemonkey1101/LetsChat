@@ -69,6 +69,16 @@
             android:textSize="14sp"
             android:maxLines="1"
             android:fontFamily="@font/chivo_black"/>
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/save"
+            android:visibility="gone"
+            android:textColor="@color/white"/>
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

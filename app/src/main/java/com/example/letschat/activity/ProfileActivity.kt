@@ -1,8 +1,11 @@
 package com.example.letschat.activity
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.letschat.R
@@ -13,11 +16,16 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_users.*
 import kotlinx.android.synthetic.main.activity_users.imgBack
+import java.io.IOException
 
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var firebaseUser: FirebaseUser
     private lateinit var databaseReference: DatabaseReference
+    private var filePath: Uri? = null
+
+    private final val PICK_IMAGE_REQUEST:Int = 2021
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,5 +61,24 @@ class ProfileActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+    }
+    private fun chooseImage() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent,"Select Image") , PICK_IMAGE_REQUEST)
+    }
+
+    override fun onActivityReenter(resultCode: Int, data: Intent?) {
+        super.onActivityReenter(resultCode, data)
+        if(resultCode == PICK_IMAGE_REQUEST && resultCode != null) {
+            filePath = data?.data
+            try {
+                var bitmap: Bitmap = MediaStore.Images.Media.getBitmap(contentResolver , filePath)
+                user_image.setImageBitmap(bitmap)
+            } catch (e:IOException) {
+                e.printStackTrace()
+            }
+        }
     }
 }
