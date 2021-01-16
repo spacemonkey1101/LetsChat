@@ -30,9 +30,10 @@ class UserAdapter(private val context:Context, private val userList:ArrayList<Us
         holder.textUserName.text = user.userName
         Glide.with(context).load(user.profileImage).placeholder(R.mipmap.ic_launcher_round).into(holder.userImage)
         holder.userLayoutItem.setOnClickListener{
-            val intent = Intent(context , ChatActivity::class.java)
-            intent.putExtra("userId" , user.userId)
-            context.startActivity(intent)
+            var intent1 = Intent(context , ChatActivity::class.java)
+            intent1.putExtra("userId" , user.userId)
+            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent1)
         }
     }
 

@@ -60,7 +60,6 @@ class UsersActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 userList.clear()
-                val currentUser = snapshot.getValue(User::class.java)
                 val user = snapshot.getValue(User::class.java)
                 if (user?.profileImage.equals("")) {
                     imgProfile.setImageResource(R.mipmap.ic_launcher_round)
