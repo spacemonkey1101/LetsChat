@@ -60,7 +60,7 @@
             app:civ_border_color="@color/colorPrimary"
             android:src="@mipmap/ic_launcher"/>
 
-        <TextView
+        <EditText
             android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,6 +68,7 @@
             android:textAlignment="center"
             android:textSize="14sp"
             android:maxLines="1"
+            android:background="@color/white"
             android:fontFamily="@font/chivo_black"/>
         <Button
             android:id="@+id/btn_save"

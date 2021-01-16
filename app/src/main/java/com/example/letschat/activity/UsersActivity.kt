@@ -60,16 +60,16 @@ class UsersActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
                 val user = snapshot.getValue(User::class.java)
-                if (user?.userImage.equals("")) {
+                if (user?.profileImage.equals("")) {
                     imgProfile.setImageResource(R.mipmap.ic_launcher_round)
                 } else {
-                    Glide.with(this@UsersActivity).load(user?.userImage)
+                    Glide.with(this@UsersActivity).load(user?.profileImage)
                         .placeholder(R.mipmap.ic_launcher_round).into(imgProfile)
 
                 }
                 for(dataSpanShot:DataSnapshot in snapshot.children) {
                     if (user?.userId?.equals(firebase?.uid) == true) {
-                        user?.let { userList.add(it) }
+                        user.let { userList.add(it) }
                     }
                 }
                 val userAdapter = UserAdapter(applicationContext,userList)

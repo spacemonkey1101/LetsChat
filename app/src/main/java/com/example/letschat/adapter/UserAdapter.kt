@@ -25,7 +25,7 @@ class UserAdapter(private val context:Context, private val userList:ArrayList<Us
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = userList[position]
         holder.textUserName.text = user.userName
-        Glide.with(context).load(user.userImage).placeholder(R.mipmap.ic_launcher_round).into(holder.userImage)
+        Glide.with(context).load(user.profileImage).placeholder(R.mipmap.ic_launcher_round).into(holder.userImage)
     }
 
     override fun getItemCount(): Int {

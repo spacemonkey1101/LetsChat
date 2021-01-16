@@ -57,11 +57,11 @@ class ProfileActivity : AppCompatActivity() {
             databaseReference.addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val user = snapshot.getValue(User::class.java)
-                    userName.text = user?.userName
-                    if (user?.userImage.equals("")) {
+                    userName.setText(user?.userName)
+                    if (user?.profileImage.equals("")) {
                         user_image.setImageResource(R.mipmap.ic_launcher_round)
                     } else {
-                        Glide.with(this@ProfileActivity).load(user?.userImage)
+                        Glide.with(this@ProfileActivity).load(user?.profileImage)
                             .placeholder(R.mipmap.ic_launcher_round).into(user_image)
 
                     }
@@ -113,6 +113,12 @@ class ProfileActivity : AppCompatActivity() {
         if(filePath != null) {
             val ref:StorageReference = storageRef.child("image/" + UUID.randomUUID().toString())
             ref.putFile(filePath!!).addOnSuccessListener {
+                val hashMap: HashMap<String, String> = HashMap()
+                hashMap.put("userName", userName.text.toString())
+                hashMap.put("profileImage", filePath.toString())
+
+                databaseReference.updateChildren(hashMap as Map<String, Any>)
+
                     progressBar.visibility = View.GONE
                     Toast.makeText(applicationContext, "Uploaded", Toast.LENGTH_SHORT).show()
                     btn_save.visibility = View.GONE
