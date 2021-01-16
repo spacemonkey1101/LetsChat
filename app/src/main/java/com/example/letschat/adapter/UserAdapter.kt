@@ -31,7 +31,7 @@ class UserAdapter(private val context:Context, private val userList:ArrayList<Us
         Glide.with(context).load(user.profileImage).placeholder(R.mipmap.ic_launcher_round).into(holder.userImage)
         holder.userLayoutItem.setOnClickListener{
             val intent = Intent(context , ChatActivity::class.java)
-            intent.putExtra("userid" , user.userId)
+            intent.putExtra("userId" , user.userId)
             context.startActivity(intent)
         }
     }
@@ -40,7 +40,7 @@ class UserAdapter(private val context:Context, private val userList:ArrayList<Us
         return userList.size
     }
     class ViewHolder(view: View):RecyclerView.ViewHolder(view){
-        val textUserName = view.findViewById<TextView>(R.id.userName)
+        val textUserName = view.findViewById<TextView>(R.id.user_name)
         val textTemp = view.findViewById<TextView>(R.id.temp)
         val userImage = view.findViewById<ImageView>(R.id.user_image)
         val userLayoutItem = view.findViewById<LinearLayout>(R.id.user_layout_item)

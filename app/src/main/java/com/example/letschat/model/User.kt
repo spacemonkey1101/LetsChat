@@ -1,3 +1,3 @@
 package com.example.letschat.model
 
-data class User(val userId:String ="",val userName:String ="",val profileImage:String="")
+data class User(val profileImage:String="",val userId:String ="",val userName:String ="")

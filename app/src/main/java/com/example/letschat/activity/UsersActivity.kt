@@ -58,7 +58,9 @@ class UsersActivity : AppCompatActivity() {
 
         databaseReference.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+
                 userList.clear()
+                val currentUser = snapshot.getValue(User::class.java)
                 val user = snapshot.getValue(User::class.java)
                 if (user?.profileImage.equals("")) {
                     imgProfile.setImageResource(R.mipmap.ic_launcher_round)
@@ -67,9 +69,10 @@ class UsersActivity : AppCompatActivity() {
                         .placeholder(R.mipmap.ic_launcher_round).into(imgProfile)
 
                 }
-                for(dataSpanShot:DataSnapshot in snapshot.children) {
-                    if (user?.userId?.equals(firebase?.uid) == true) {
-                        user.let { userList.add(it) }
+                for (dataSnapShot: DataSnapshot in snapshot.children) {
+                    val user = dataSnapShot.getValue(User::class.java)
+                    if (!user!!.userId.equals(firebase?.uid)) {
+                        userList.add(user)
                     }
                 }
                 val userAdapter = UserAdapter(applicationContext,userList)
