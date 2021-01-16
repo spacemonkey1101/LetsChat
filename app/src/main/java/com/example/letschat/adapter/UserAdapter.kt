@@ -1,15 +1,18 @@
 package com.example.letschat.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.letschat.R
+import com.example.letschat.activity.ChatActivity
 import com.example.letschat.model.User
 
 class UserAdapter(private val context:Context, private val userList:ArrayList<User>)
@@ -26,6 +29,11 @@ class UserAdapter(private val context:Context, private val userList:ArrayList<Us
         val user = userList[position]
         holder.textUserName.text = user.userName
         Glide.with(context).load(user.profileImage).placeholder(R.mipmap.ic_launcher_round).into(holder.userImage)
+        holder.userLayoutItem.setOnClickListener{
+            val intent = Intent(context , ChatActivity::class.java)
+            intent.putExtra("userid" , user.userId)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -35,6 +43,7 @@ class UserAdapter(private val context:Context, private val userList:ArrayList<Us
         val textUserName = view.findViewById<TextView>(R.id.userName)
         val textTemp = view.findViewById<TextView>(R.id.temp)
         val userImage = view.findViewById<ImageView>(R.id.user_image)
+        val userLayoutItem = view.findViewById<LinearLayout>(R.id.user_layout_item)
 
     }
 }

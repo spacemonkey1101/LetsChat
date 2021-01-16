@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:paddingTop="10dp"
+    android:id="@+id/user_layout_item"
     android:orientation="vertical">
 
     <LinearLayout
