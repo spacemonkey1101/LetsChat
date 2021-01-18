@@ -2,6 +2,7 @@ package com.example.letschat.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.letschat.R
 import com.example.letschat.model.User
@@ -49,6 +50,30 @@ class ChatActivity : AppCompatActivity() {
             }
 
         })
+
+        btn_send_message.setOnClickListener {
+            var message:String = edit_text_message.text.toString()
+            if (message.isEmpty()) {
+                Toast.makeText(applicationContext , "Enter text to send" , Toast.LENGTH_SHORT).show()
+            } else {
+                sendMessgae(firebaseUser?.uid!!, userId , message)
+            }
+
+        }
+    }
+
+    private fun sendMessgae(senderId: String,receiverId:String,message:String) {
+        var databaseReference: DatabaseReference? =
+            FirebaseDatabase.getInstance()
+            .getReference()
+
+        var hashMap:HashMap<String,String> = HashMap()
+        hashMap.put("senderId",senderId)
+        hashMap.put("receiverId",receiverId)
+        hashMap.put("message",message)
+
+        //sending the value to realtime database
+        databaseReference?.child("chat")?.push()?.setValue(hashMap)
 
 
     }
