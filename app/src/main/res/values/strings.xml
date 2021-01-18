@@ -9,5 +9,6 @@
     <string name="message">Message</string>
     <string name="profile">Profile</string>
     <string name="save">Save</string>
+    <string name="type_message">Type Message</string>
 
 </resources>
